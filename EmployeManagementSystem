@@ -1,0 +1,146 @@
+import java.util.*;
+class EmployeManagementSystem
+{
+	static String ename;
+	static int eid;
+	static String erole;
+	static double esal;
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("*** WELCOME ***");
+		System.out.println();
+		features:
+		for (; ; ) {
+			System.out.println("*** FEATURES ***");
+			System.out.println("1.Add new Employee");
+			System.out.println("2.View Employee");
+			System.out.println("3.Edit Employee");
+			System.out.println("4.Exit");
+			System.out.println();
+			System.out.print("Enter an option : ");
+			int opt = sc.nextInt();
+
+			switch(opt)
+			{
+			case 1:
+				{
+					addNewEmployee();
+					break;
+				}
+
+			case 2:
+				{
+					viewEmployee(1);
+					break;
+				}
+				
+			case 3:
+				{
+					System.out.println("Edit employee data");
+					for (; ; ) {
+						System.out.println("1.Edit name: ");
+						System.out.println("2.Edit Emp id: ");
+						System.out.println("3.Edit role: ");
+						System.out.println("4.Edit salary: ");
+
+						System.out.print("Enter an option: ");
+						int opt1 = sc.nextInt();
+						switch(opt1)
+						{
+						case 1:
+							{
+								editName();
+								break;
+							}
+						case 2:
+							{
+								editEmpid();
+								break;
+							}
+						case 3:
+							{
+								editRole();
+								break;
+							}
+						case 4:
+							{
+								editSalary();
+								break;
+							}			
+						}
+					}
+					// break;
+				}
+				
+			case 4:
+				{
+					System.exit(0);
+					break;
+				}	
+			default:{
+				System.out.println("Incorrect option");
+			    }			
+		    }
+		}
+	}
+
+	public static void addNewEmployee() 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("*** Enter New Employee Data ***");
+		System.out.print("Employee Name : ");
+		ename = sc.nextLine();
+		System.out.print("Employee ID : ");
+		eid = sc.nextInt();
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Employee Role : ");
+		erole = sc.nextLine();
+		System.out.print("Employee salary : ");
+		esal = sc.nextDouble();
+	}
+
+	public static void viewEmployee(int eid1)
+    {
+    	if(eid==eid1)
+    	{
+    		System.out.println("Employee Data ");
+    		System.out.println("Name : "+ename);
+    		System.out.println("Emp Id : "+eid);
+    		System.out.println("Role : "+erole);
+    		System.out.println("Salary : "+esal);
+    		System.out.println();
+    	}
+    	else
+    	{
+    		System.out.println("Wrong EID");
+    	}
+		
+	}
+	public static void editName() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter name: ");
+		String newname = sc.nextLine();
+		ename=newname;
+		System.out.println("Name  successfully Upadated");
+	}
+	public static void editEmpid() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter id: ");
+		int newid;
+		System.out.println("Id Upadated");
+	}
+	public static void editRole() {
+		Scanner sc = new Scanner(System.in);
+		String newrole = sc.nextLine();
+		erole = newrole;
+		System.out.println("Role Upadated");
+	}
+	public static void editSalary() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter the salary: ");
+		double newsal = sc.nextDouble();
+		esal = newsal;
+		System.out.println("Salary Upadated");
+	}
+}
